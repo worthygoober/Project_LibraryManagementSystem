@@ -37,7 +37,6 @@ class User:
         self.__name = name
         self.__library_id = library_id
         self.__borrowed_books = []
-        # self.user_details = {}
 
     def get_name(self):
         return self.__name
@@ -160,7 +159,7 @@ def search_for_book():
     title = input("Enter book title to search: ")
     for book in books:
         if book.get_title() == title:
-            availability = "Available" if book.is_available else "Borrowed"
+            availability = "Available" if book.is_available() else "Borrowed"
             print(f"Title: {book.get_title()}\n    Author: {book.get_author()}\n    Genre: {book.get_genre()}\n    Publication Date: {book.get_publication_date()}\n    Availability: {availability}")
             return
     print("Book not found in library.")
@@ -174,11 +173,11 @@ def display_all_books():
 def add_user():
     while True:
         name = input("Enter new user's name: ")
-        if not is_valid_name():
+        if not is_valid_name(name):
             print("Invalid name. Please enter only letters and spaces.")
             continue
         library_id = input("Enter new user's library ID (must begin with 'L' and be followed by 4 digits): ")
-        if not is_valid_library_id():
+        if not is_valid_library_id(library_id):
             print("Invalid ID. Library ID must begin with 'L' and be followed by 4 digits.")
             continue
         for user in users:
