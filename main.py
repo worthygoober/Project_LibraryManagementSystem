@@ -1,68 +1,8 @@
 import re
 
-class Book:
-    def __init__(self, title, author, genre, publication_date):
-        self.__title = title
-        self.__author = author
-        self.__genre = genre
-        self.__publication_date = publication_date
-        self.__is_available = True
-    
-    def get_title(self):
-        return self.__title
-    
-    def get_author(self):
-        return self.__author
-    
-    def get_genre(self):
-        return self.__genre
-    
-    def get_publication_date(self):
-        return self.__publication_date
-    
-    def is_available(self):
-        return self.__is_available
-    
-    def return_book(self):
-        self.__is_available = True
-    
-    def borrow(self):
-        if self.__is_available:
-            self.__is_available = False
-        else:
-            raise Exception("Book is already borrowed.")
-
-class User:
-    def __init__(self, name, library_id):
-        self.__name = name
-        self.__library_id = library_id
-        self.__borrowed_books = []
-
-    def get_name(self):
-        return self.__name
-
-    def get_library_id(self):
-        return self.__library_id
-    
-    def get_borrowed_books(self):
-        return self.__borrowed_books
-    
-    def borrow_book(self, title):
-        self.__borrowed_books.append(title)
-
-    def return_book(self, title):
-        self.__borrowed_books.remove(title)
-
-class Author:
-    def __init__(self, name, biography):
-        self.__name = name
-        self.__biography = biography
-    
-    def get_author_name(self):
-        return self.__name
-    
-    def get_biography(self):
-        return self.__biography
+from book import Book
+from user import User
+from author import Author
         
 books = []
 users = []
